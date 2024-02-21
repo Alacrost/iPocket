@@ -1,0 +1,9 @@
+{% block content %}
+<h2>Lista de Ativos</h2>
+<ul>
+    {% for ativo in ativos %}
+    <li><a href="{% url 'detalhes_ativo' pk=ativo.pk %}">{{ ativo.name }}</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'novo_ativo' %}">Adicionar Novo Ativo</a>
+{% endblock %}
