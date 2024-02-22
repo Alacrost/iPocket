@@ -2,10 +2,13 @@
 
 {% block content %}
 <h2>Detalhes do Ativo</h2>
-<p>Nome: {{ ativo.name }}</p>
-<p>Tipo: {{ ativo.tipo }}</p>
-<p>Quantidade: {{ ativo.quantity }}</p>
-<p>Preço Unitário: {{ ativo.preco_unitario }}</p>
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+</form>
+
 <a href="{% url 'editar_ativo' pk=ativo.pk %}">Editar</a>
+{% csrf_token %}
 <a href="{% url 'excluir_ativo' pk=ativo.pk %}">Excluir</a>
 {% endblock %}
